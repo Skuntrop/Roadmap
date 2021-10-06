@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import {render} from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function  Authorization(){
+    const handleClick = e =>{
+        e.preventDefault();
+        alert("Добро пожаловать");
+    }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    return(
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Логин: </label>
+                <div class="col-xs-10">
+                    <input type="email" className="form-control" placeholder="Введите логин"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label">Пароль: </label>
+                <div className="col-xs-10">
+                    <input type="password" className="form-control" placeholder="Введите пароль"/>
+                </div>
+            </div>
+            <button onClick={handleClick} type="submit" class="btn btn-default">
+                Войти
+            </button>
+        </form>
+    )
+}
+
+render(<Authorization />, document.getElementById("root"))
